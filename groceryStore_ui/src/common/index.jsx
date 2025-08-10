@@ -1,5 +1,5 @@
 //backend url for frontend
-const backendDomain = "http://localhost:8000";
+const backendDomain = "https://grocerystore-ylri.onrender.com";
 
 const SummaryApi = {
   signUp: {
@@ -69,3 +69,4 @@ const SummaryApi = {
 };
 
 export default SummaryApi;
+
