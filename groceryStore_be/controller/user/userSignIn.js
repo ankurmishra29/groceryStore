@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs")
 const userModel = require("../../models/userModel")
 const jwt = require("jsonwebtoken")
 const axios = require("axios")
-const secret_key = "6Lf27jsqAAAAAJ0WOetDvRyo9PB1XqnC056ng6yp"
+const secret_key = "6Lesc8ErAAAAAEkQSl5c4MqhK-Bbbr98TkpoErxV"
 
 async function userSignInController(req, res) {
   try {
@@ -70,3 +70,4 @@ async function userSignInController(req, res) {
 }
 
 module.exports = userSignInController
+
