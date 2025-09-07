@@ -2,7 +2,7 @@
 const userModel = require("../../models/userModel");
 const bcrypt = require("bcryptjs");
 const axios = require("axios");
-const secret_key = "6Lf27jsqAAAAAJ0WOetDvRyo9PB1XqnC056ng6yp";
+const secret_key = "6Lesc8ErAAAAAEkQSl5c4MqhK-Bbbr98TkpoErxV";
 
 async function userSignUpController(req, res) {
   try {
@@ -66,3 +66,4 @@ async function userSignUpController(req, res) {
 }
 
 module.exports = userSignUpController;
+
