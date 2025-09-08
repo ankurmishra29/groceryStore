@@ -50,7 +50,15 @@ async function userSignInController(req, res) {
       const tokenOption = {
         httpOnly: true,
         secure: true,
+        sameSite: 'none', // Required for cross-origin requests
+        maxAge: 60 * 60 * 8 * 1000, // 8 hours in milliseconds
+        path: '/' // Available for all paths
       }
+
+      console.log('=== Setting Cookie ===');
+      console.log('Token:', token);
+      console.log('Options:', tokenOption);
+      console.log('=====================');
       res.cookie("token", token, tokenOption).json({
         message: "LogIn successfully",
         data: token,
@@ -70,4 +78,5 @@ async function userSignInController(req, res) {
 }
 
 module.exports = userSignInController
+
 
