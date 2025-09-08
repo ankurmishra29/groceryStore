@@ -8,9 +8,8 @@ const cookiesParser = require("cookie-parser");
 
 const app = express();
 
-// CORS configuration for Netlify + Render
 const allowedOrigins = [
-  'https://grocerystoreank.netlify.app', // Your Netlify URL
+  'https://grocerystoreank.netlify.app', 
   'http://localhost:3000',
   'http://localhost:5173',
   process.env.FRONTEND_URL
@@ -19,7 +18,6 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow requests with no origin
       if (!origin) return callback(null, true);
       
       if (allowedOrigins.includes(origin)) {
@@ -29,21 +27,12 @@ app.use(
         return callback(new Error('Not allowed by CORS'));
       }
     },
-    credentials: true, // Essential for cookies
+    credentials: true, 
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
     exposedHeaders: ["Set-Cookie"]
   })
 );
-
-// Debug middleware for cookies
-app.use((req, res, next) => {
-  console.log('=== Request Debug ===');
-  console.log('Origin:', req.get('Origin'));
-  console.log('Cookies:', req.cookies);
-  console.log('===================');
-  next();
-});
 
 app.use(express.json());
 app.use(cookiesParser());
@@ -56,3 +45,4 @@ connectDB().then(() => {
     console.log("Server is running at port: " + PORT);
   });
 });
+
