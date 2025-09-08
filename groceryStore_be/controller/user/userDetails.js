@@ -3,7 +3,6 @@ const userModel = require("../../models/userModel");
 
 async function userDetailsController(req, res) {
   try {
-    console.log("userId ", req.userId);
 
     const user = await userModel.findById(req.userId);
 
@@ -13,8 +12,6 @@ async function userDetailsController(req, res) {
       success: true,
       message: "user details",
     });
-
-    console.log("user", user);
 
     if (!req.userId) {
       return res.status(401).json({
@@ -33,3 +30,4 @@ async function userDetailsController(req, res) {
 }
 
 module.exports = userDetailsController;
+
